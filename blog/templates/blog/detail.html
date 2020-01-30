@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   {% load staticfiles %}
   <meta charset="utf-8">
@@ -9,7 +8,7 @@
   <meta name="author" content="">
 
 
-  <title>Frank Amungo's Consults</title>
+  <title>{{ blog.title }}</title>
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -45,7 +44,7 @@
           <a class="nav-item nav-link" href="http://twitter.com/Izzo56964328">Twitter</a>
           <a class="nav-item nav-link" href="{% static 'resume.pdf' %}">Resume</a>
           <a class="nav-item nav-link" href="#">Linkedln</a>
-      <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blog</a>
+      <a class="nav-item nav-link active active" href="{% url 'allblogs' %}">Blog</a>
 
         </div>
       </div>
@@ -53,45 +52,18 @@
   </header>
 
   <main role="main">
+    <div class="container">
 
-    <section class="jumbotron text-center">
-      <div class="container">
-        <h1 class="jumbotron-heading">Hi, I'm Frank.</h1>
-        <p class="lead text-muted">Professional Systems and network Security Administrator with more than 10 years’ experience in providing outstanding customer satisfaction and improving overall systems operation.
-          Excellent and instinctive problem solving and decision making skills with the ability to be proactive in all server and network system maintenance and support.
-          Four years of experience in design analysis, development and implementation of various e-commerce applications, Database, internet web applications, Client and Server Architecture using Python/Django, WordPress technologies spanning the entire software Development life Cycle.
-          Experience with PHP, the Laravel framework and Symfony components.
-          Expert Knowledge working with WAMP, LAMP and XAMPP.
-          Managing end-to-end build Pipelines on Docker, Traditional or VM based platform
-          Experience working within an agile workflow
-          Experienced practitioner of Test Driven Development and strong understanding of
-          object oriented design, design pattern and SOLID principles.
-       </p>
-        <p>
-          <a href="mailto:izonet101@gmail.com" class="btn btn-primary my-2">Email Me</a>
-        </p>
-        <img src="{% static 'picture.jpeg' %}" height="300">
-      </div>
-    </section>
 
-    <div class="album py-5 bg-light">
-      <div class="container">
-        <div class="row">
 
-          {% for job in jobs.all %}
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-              <img class="card-img-top" src="{{ job.image.url }}"/>
-              <div class="card-body">
-                <p class="card-text">{{ job.summary }}</p>
-              </div>
-            </div>
-          </div>
-          {% endfor %}
+    <h1 class="text-center pt-3">Welcome to frank's blog</h1>
+     <p class="text-center">{{ blog.pub_date}}</p>
+    <img class="img-fluid" src="{{ blog.image.url }}"/>
+    <br />
+    <p>{{ blog.body }}</p>
 
-        </div>
-      </div>
-    </div>
+
+ </div>
 
   </main>
 
